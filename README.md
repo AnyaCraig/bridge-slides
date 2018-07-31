@@ -1,8 +1,11 @@
-## Bridge Lesson Slides
+## Bridge Slides Routing POC
 
-This repository will hold all slides for content related to bridge modules. This is very early stages, 
-and can change at any time!
+To run this thing, make sure you're in your root directory, and run:
 
-To see ALL slides, https://bridge-school.github.io/bridge-slides-spectacle/
+npm install
 
-This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+Once that's all done, run:
+
+npm start
+
+You should see a browser tab open to display the project.
