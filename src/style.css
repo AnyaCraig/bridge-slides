@@ -26,13 +26,13 @@
     padding: 10px 25px;
 }
 
-.presentation-container .link-section:nth-child(2n + 1) {
+/* .presentation-container .link-section:nth-child(2n + 1) {
     background-color: #edfffc;
 }
 
 .presentation-container .link-section:nth-child(2n) {
     background-color: #fcf7ff;
-}
+} */
 
 .presentation-container .slide-deck-link {
     font-size: 24px;
