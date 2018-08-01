@@ -6,12 +6,24 @@ import { colours, fontFamilies } from './theme';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { functionalProgrammingSlideList, reactSlideList } from './slideDecks'; // get the slide decks
 
-
 // Require CSS
 require('normalize.css');
 require('./style.css');
 
 const theme = createTheme(colours, fontFamilies);
+
+const contentModules = [
+  {
+    path: "functional-programming",
+    deck: functionalProgrammingSlideList,
+    title: "Functional Programming",
+  },
+  {
+    path: "react",
+    deck: reactSlideList,
+    title: "React",
+  },
+];
 
 export default class Presentation extends React.Component {
 
@@ -29,22 +41,42 @@ export default class Presentation extends React.Component {
     );
   }
 
+  createRoute = (module, key) => {
+    return (
+      <Route path={`/${module.path}/`} key={key} render={(props) => this.renderSlideDeck(props, module.deck)} />
+    );
+  }
+
+  createRouteList = (modules) => {
+    return modules.map((module, i) => this.createRoute(module, i));
+  }
+
+  createLinkList = (modules) => {
+    return (
+      <ul>
+        {
+          modules.map((module, i) => {
+            return (
+              <li>
+                <Link className="header-link" to={`/${module.path}/`}>{module.title}</Link>
+              </li>
+            );
+          })
+        }
+      </ul>
+    );
+  }
+
   render() {
     return (
       <Router>
         <div className="presentation-container">
-          <Route path='/functional-programming/' render={(props) => this.renderSlideDeck(props,functionalProgrammingSlideList)} />
-          <Route path='/react/' render={(props) => this.renderSlideDeck(props,reactSlideList)} />
+          <div className="routes-list">
+            {this.createRouteList(contentModules)}
+          </div>
           <div className="links-list">
-          <h2>Choose a slide deck by topic:</h2>
-            <ul>
-              <li>
-                <Link className="header-link" to='/functional-programming/'>Functional Programming</Link>
-              </li>
-              <li>
-                <Link className="header-link" to='/react/'>React</Link>
-              </li>
-            </ul>
+            <h2>Choose a slide deck by topic:</h2>
+            {this.createLinkList(contentModules)}
           </div>
         </div>
       </Router>
