@@ -58,7 +58,12 @@ export default class Presentation extends React.Component {
           modules.map((module, i) => {
             return (
               <li>
-                <Link className="header-link" to={`/${module.path}/`}>{module.title}</Link>
+                <p>
+                  <Link className="slide-deck-link" to={`/${module.path}/#/0`}>Start {module.title} from the beginning</Link>
+                </p>
+                <p>
+                  <Link className="slide-deck-link" to={`/${module.path}/`}>Start where you left off in {module.title}</Link>
+                </p>
               </li>
             );
           })
