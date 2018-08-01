@@ -4,4 +4,39 @@
 
 .presentation-container {
     padding: 60px;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.presentation-container .links-heading {
+    font-size: 36px;
+    color: #2f0087 ;
+} 
+
+.presentation-container .slide-deck-link-list {
+    list-style-type: none;
+}
+
+.presentation-container .link-section-heading {
+    font-size: 26px;
+    text-decoration: underline;
+    color:#94109a;
+}
+
+.presentation-container .link-section {
+    padding: 10px 25px;
+}
+
+.presentation-container .link-section:nth-child(2n + 1) {
+    background-color: #edfffc;
+}
+
+.presentation-container .link-section:nth-child(2n) {
+    background-color: #fcf7ff;
+}
+
+.presentation-container .slide-deck-link {
+    font-size: 24px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #5a0637;
 }

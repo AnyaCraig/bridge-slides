@@ -53,11 +53,12 @@ export default class Presentation extends React.Component {
 
   createLinkList = (modules) => {
     return (
-      <ul>
+      <ul className="slide-deck-link-list">
         {
           modules.map((module, i) => {
             return (
-              <li>
+              <li className="link-section">
+                <p className="link-section-heading">{module.title}</p>
                 <p>
                   <Link className="slide-deck-link" to={`/${module.path}/#/0`}>Start {module.title} from the beginning</Link>
                 </p>
@@ -80,7 +81,7 @@ export default class Presentation extends React.Component {
             {this.createRouteList(contentModules)}
           </div>
           <div className="links-list">
-            <h2>Choose a slide deck by topic:</h2>
+            <h2 className="links-heading">Choose a slide deck by topic:</h2>
             {this.createLinkList(contentModules)}
           </div>
         </div>
